@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取下拉列表的选中项的值</title>
+</head>
+<body>
+    <!--方式1-->
+    <!--<select onchange="alert(this.value)">
+        <option value="001">Please choose your province</option>
+        <option value="002">henan</option>
+        <option value="003">hebei</option>
+        <option value="004">shanxi</option>
+        <option value="005">shandong</option>
+        <option value="006">guangdong</option>
+    </select>-->
+
+    <!--方式2-->
+    <script type="text/javascript">
+        window.onload=function(){
+            var provincelistEle=document.getElementById("provincelist");
+            provincelistEle.onchange=function(){
+                //获取选择项的值
+                alert(provincelistEle.value);
+            }
+        }
+    </script>
+
+    <select id="provincelist">
+        <option value="001">Please choose your province</option>
+        <option value="002">henan</option>
+        <option value="003">hebei</option>
+        <option value="004">shanxi</option>
+        <option value="005">shandong</option>
+        <option value="006">guangdong</option>
+    </select>
+</body>
+</html>

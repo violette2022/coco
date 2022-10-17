@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input tag's value</title>
+</head>
+<!-- 一个页面中不能有两个script-->
+<body>
+    <script type="text/javascript">
+        //click on the button to get the text box's value
+        window.onload = function(){
+            var btnEle = document.getElementById("btn");
+            btnEle.onclick = function(){
+                /*var usernameEle = document.getElementById("username");
+                var username = usernameEle.value;
+                alert(username);
+                */
+                alert(document.getElementById("username").value);
+                //document.getElementById("username").value = "jack";
+           }
+        
+        }
+        
+        
+    </script>
+    <input type="text" id="username"/>
+    <input type="button" value="get the text area's value" id="btn"/>
+    <hr>
+    <script type="text/javascript">
+    //click on button to copy the value 
+    window.onload = function(){
+            document.getElementById("b").onclick = function(){
+                document.getElementById("c").value = document.getElementById("o").value;
+            }
+        }
+    </script>
+    <br>
+    <input type="text" id="o"/>
+    <br>
+    <input type="text" id="c"/>
+    <br>
+    <input type="button" value="copy" id="b"/>
+
+</body>
+</html>

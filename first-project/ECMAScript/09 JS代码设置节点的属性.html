@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute</title>
+</head>
+<body>
+    <script type="text/javascript">
+       /* window.onload = function(){
+            document.getElementById("btn").onclick = function(){
+                var mytext = document.getElementById("mytext");
+                //一个节点对象中只要有的属性都可以.attribute
+                mytext.type = "checkbox";
+            }
+        }
+        */
+
+        window.onload = function(){
+            document.getElementById("btn1").onclick = function(){
+                var text = document.getElementById("text1");
+                text.type = "password";
+            }
+        }
+
+    
+       
+    </script>
+    <input type="text" id="mytext"/>
+    <input type="button" value="change textbox to checkbox" id="btn"/>
+
+    <input type="text" id="text1"/>
+    <input type="button" id="btn1" value="change textbox to password"/>
+</body>
+</html>

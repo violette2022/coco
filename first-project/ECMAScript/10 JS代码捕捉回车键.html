@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS key enter</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function(){
+            //获取回车键的值-13  ESC-27
+            //对于键盘事件来说，都有keyCode属性来获取键值 
+            //用一个变量名来接收浏览器刚刚创建出来的事件对象，这个对象是自动传过来的，需用一个变量名来接收即可
+            document.getElementById("username").onkeydown = function(event){
+                //alert("111");
+                //按回车键登录
+                if (event.keyCode === 13){
+                    alert("Doing the login")
+                }
+            }
+            //按下一个任意键都会调用这个函数 ，浏览器只传一个键盘对象过来，所以b's value = undefined
+            document.getElementById("password").onkeydown = function(a, b){
+                //alert(a);
+                alert(b);
+            }
+            
+        }
+    </script>
+    <input type="text" id="username">
+    \<input type="text" id="password">
+</body>
+</html>

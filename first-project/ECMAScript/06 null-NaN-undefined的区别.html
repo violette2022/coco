@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>这三个值的区别</title>
+</head>
+<body>
+    <script type="text/javascript">
+        alert(1 == true); //true
+        alert(1 === true); //false
+
+        //null NaN undefined的数据类型不一样
+        alert(typeof null); // "object"
+        alert(typeof NaN); // "number"
+        alert(typeof undefined); // "undefined"
+
+        //null udefined可以等同
+        alert(null == NaN); //false
+        alert(null == undefined); //true
+        alert(undefined == NaN); //false
+
+        //===
+        alert(null === NaN); //false
+        alert(null === undefined);// false
+        alert(undefined === NaN); // false
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert</title>
+</head>
+<body>
+    <script type="type/javascript">
+        function del(){
+            //这个方法有布尔类型的返回值
+            var ok = window.confirm("亲，确认删除数据吗");
+            //alert(ok);
+            if(ok){
+                alert("deleting data.....");
+            }
+        }
+    </script>
+    <input type="button" value="消息框" onclick="window.alert('消息框')"/>
+    <!--删除操作的时候都要提前先得到用户的确认-->
+    <input type="button" value="弹出确认框(删除)" onclick="del();" />
+    
+</body>
+</html>

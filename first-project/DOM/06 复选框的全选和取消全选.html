@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function(){
+            var firstcheckEle = document.getElementById("firstcheck");
+            var sport = document.getElementsByName("sport");
+            firstcheckEle.onclick = function(){
+                //获取第一个复选框的选中状态
+                //alert(firstcheckEle.checked);
+                //根据name获取所有元素
+               
+                //代码有点啰嗦
+                /*if(firstcheckEle.checked){
+                    //全选
+                    for(var i=0; i<sport.length; i++){
+                        sport[i].checked=true;
+                    }
+                }else{
+                    //取消
+                    for(var i=0; i<sport.length; i++){
+                        sport[i].checked=false;
+                    }
+                }*/
+                //优化代码
+                for(var i=0; i<sport.length; i++){
+                    sport[i].checked=firstcheckEle.checked;
+                }
+            }
+            //若全部选项选中，第一个选项也要自动被选中
+            //对以上数组进行遍历
+            var all=sport.length;
+            //var checkedCount=0;
+            for(var i=0; i<sport.length; i++){
+                sport[i].onclick=function(){
+                    var checkedCount=0;
+                    //总数量和选中的数量相等的时候，第一个复选框选中
+                    for(var i=0; i<sport.length; i++){
+                        if(sport[i].checked){
+                            checkedCount++;
+                        }
+                    }
+                    /*if(all==checkedCount){
+                        firstcheckEle.checked=true;
+                    }else{
+                        firstcheckEle.checked=false;
+                    }*/
+                    //优化代码
+                    firstcheckEle.checked=(all==checkedCount);
+
+                }
+
+            }
+
+        }
+    </script>
+    <input type="checkbox" id="firstcheck"/><br>
+    <input type="checkbox" name="sport" value="jogging" /> jogging<br>
+    <input type="checkbox" name="sport" value="football" /> football<br>
+    <input type="checkbox" name="sport" value="basketball" /> basketball<br>
+    <input type="checkbox" name="sport" value="gongfu" /> gongfu<br>
+
+    
+</body>
+</html>

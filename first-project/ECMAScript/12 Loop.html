@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //JS循环和JAVA的一样
+        //数组的创建和遍历
+        var arr = [false, true, 1, "abc"];
+        for(var i=0; i<arr.length; i++){
+            alert(arr[i]);
+        }
+
+        // for ...in 循环 i是数组的下标
+         for(var i in arr){
+            alert(arr[i]);
+         }
+         //for  in 可以遍历对象的属性
+         User = function(username, password){
+            this.username = username;
+            this.password = password;
+         }
+
+         var u = new User("coco", "666");
+         alert(u.username + "," + u.password);
+         alert(u[username] + "," + u[password]);
+
+         for (var 属性名 in u){
+            alert(属性名);
+            alert(typeof 属性名); //"string"
+            alert(u[属性名]);
+         }
+    </script>
+    
+</body>
+</html>

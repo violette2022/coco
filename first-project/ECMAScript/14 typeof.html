@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typeof</title>
+</head>
+<body>
+    Hello World
+    <!--<script type="text/javascript" src="function.js"></script> -->
+    <script>
+        function sum(a, b){
+            if (typeof a == "number" && b == "number"){
+                return a + b;
+            }
+            alert(a + "," + b + "should be Number");
+        }
+
+        sum = function(a, b){
+            if (isNaN(a) || isNaN(b)){
+                alert(a + " and " + b + " should be Number");
+            }
+            return a + b;
+        }
+
+    var retValue = sum(false, "abc");//；没有返回值 undefined
+    alert(retValue);
+
+    var retvalue2 = sum(1, 3);
+    alert(retvalue2);
+
+    var i;
+    aler(typeof i);//"undefined"
+    var k = 10;
+    alert(typeof k);//"number"
+    var f = "abc";
+    alert(typeof f);//"string"
+    var d = null;
+    alert(typeof d);//"object"
+    var flag = false;
+    alert(typeof flag);//"boolean"
+    var obj = new Object();
+    alert(typeof obj);//"object"
+    function sayHello(){
+    }
+    alert(typeof sayHello);//"function"
+    </script>
+</body>
+</html>

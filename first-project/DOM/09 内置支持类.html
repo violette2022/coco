@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置支持类Array</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //创建长度为0的数组
+        var arr=[];
+        alert(arr.length);
+        //数组类型随意
+        var arr2=[1,2,"hello","a",6,8];
+        alert(arr2.length);
+        //下标会越界吗
+        arr2[7]="test";
+        //遍历
+        for(var i=0; i<arr2.length; i++){
+            document.write(arr2[i]+"<br>");
+        }
+
+        //另一种创建数组的对象的方式
+        var a=new Array();
+        alert(a.length);//0
+        
+        var a2=new Array(3);//3表示长度
+        alert(a2.length);//3
+        
+        var a3=new Array(2,3);
+        alert(a3.length);//2
+
+    </script>
+
+</body>
+</html>

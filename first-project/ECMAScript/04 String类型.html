@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var x = "king";
+        alert(typeof x);//"string"
+        var y = new String("hello world");
+        alert(typeof y);//"object"
+        alert(x.length);//4
+        alert(y.length);//11
+
+        alert("http;//www.baidu.com".indexOf("http"));//0
+        alert("http;//www.baidu.com".indexOf("https"));//-1
+        alert("abcdd".indexOf("bc") >= 0? "including" : "not including");
+        //判断一个字符串中是否包含某个子字符串
+        alert("hello world".indexOf("hi") >= 0? "include" : "not include");
+        alert("hi france".indexOf("hi") >= 0? "including" : "not including");
+
+        alert("name=value%name=value%name=value".replace("%", "&"));
+
+        alert("abcdefg".substr(2, 4));//cdef
+        alert("abcdefg".substring(2, 4));//cd
+    </script>
+</body>
+</html>

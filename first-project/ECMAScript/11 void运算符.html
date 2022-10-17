@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void</title>
+</head>
+<body>
+    Top Page
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    
+    <!--href="" 返回的是个空字符串，页面还会跳转
+    javascript:作用是告诉浏览器后面是一段JS代码,void(0)不会返回任何结果，没有路径就无法调转，如果不加的话，"void(0)"会被认为是个字符串
+    -->
+    <a href="javascript:void(0)" onclick="window.alert('test code')">
+        既保留住超链接的样式,同时用户点击该超链接的时候执行一段JS代码,但页面还不能跳转
+    </a>
+    
+</body>
+</html>

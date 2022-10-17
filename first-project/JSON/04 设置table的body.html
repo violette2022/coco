@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table.body</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var data={
+            "total":4,
+            "emps":[
+                {"empno":7369, "ename":"smith", "sal":8000.0},
+                {"empno":7368, "ename":"cloony", "sal":9000.0},
+                {"empno":7368, "ename":"hugo", "sal":8080.0},
+                {"empno":7369, "ename":"white", "sal":7000.0}
+            ]
+        }
+        //这些数据是从JAVA中过来，希望把这些数据展示到table当中
+        window.onload=function(){
+            var displayBtnElt=document.getElementById("displayBtn");
+            displayBtnElt.onclick=function(){
+                var emps=data.emps;
+                var html="";
+                for(var i=0; i<emps.length; i++){
+                    var emp=emps[i];
+                    html+="<tr>";
+                    html+="<td>"+emp.empno+"</td>";
+                    html+="<td>"+emp.ename+"</td>";
+                    html+="<td>"+emp.sal+"</td>";
+                    html+="</tr>";
+
+                }
+                document.getElementById("emptbody").innerHTML=html;
+                document.getElementById("count").innerHTML=data.total;
+            }
+        }
+    </script>
+    <input type="button" value="show employee list" id="displayBtn"/>
+    <h2>employee list</h2>
+    <hr>
+    <table border="1px" width="50%">
+        <tr>
+            <th>employee number</th>
+            <th>employee name</th>
+            <th>employee salary</th>
+        </tr>
+        <tbody id="emptbody">
+            <!--<tr>
+                <td>7369</td>
+                <td>smith</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>7369</td>
+                <td>smith</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>7369</td>
+                <td>smith</td>
+                <td>8000</td>
+            </tr>-->
+        </tbody>
+        
+    </table>
+    total:<span id="count">0</span>
+</body>
+</html>

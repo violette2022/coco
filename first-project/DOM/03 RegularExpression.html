@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegularExpression</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // QQ : ^[1-9][0-9]{4,}$
+        // email: ^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$
+
+        //验证用户填写的邮箱是否正确
+        window.onload = function(){
+            document.getElementById("btn").onclick = function(){
+                var email = document.getElementById("email").value;
+                var emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var ok = emailRegExp.test(email);
+                if (!ok){
+                    document.getElementById("emailError").innerText = "email is not in correct format!";
+                }else{
+                    document.getElementById("emailError").innerHTML = "email is correct";
+                }
+            }
+            // 光标回到文本框时，邮箱的错误提示消失
+            document.getElementById("email").onfocus = function(){
+                document.getElementById("emailError").innerText = "";
+            }
+        }
+    </script>
+
+    <input type="text" id="email"/>
+    <span id="emailError" style="color: red; font-size: 30px;"></span>
+    <br>
+    <input type="button" value="verify email" id="btn"/>
+</body>
+</html>

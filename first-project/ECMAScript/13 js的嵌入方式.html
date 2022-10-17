@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML嵌入JS的方式</title>
+    </head>
+    <body>
+        <!--<input type="button" value="hello" onclick="window.alert('hello js')"/>
+        <input type="button" value="submit" onclick="window.alert('sumit')"/>
+        <input type="button" value="login" onclick="window.alert('login')"/> -->
+        <script type="text/javascript">
+            window.alert("hello world");
+            function sum(a, b){
+                alert(a + b);
+            }
+            sum(20, 90);
+            sayHello = function(username){
+                alert("hello " + username);
+            }
+
+            sayHello("jack");
+            var retValue = sum("jack");
+            alert(retValue);//jackundefined
+            var retValue2 = sum();
+            alert(retValue2);//NaN 是一个具体存在的值 Not a Number
+
+        </script> 
+        <script type="text/javascript" src="1.js"></script>
+        <input type="button" value="hello" onclick="sayHello('coco');"/>
+        <input type="button" value="sum" onclick="sum(50,90);"/>
+
+    </body>
+</html>

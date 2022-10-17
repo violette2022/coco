@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eval</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.eval("var i=100;");
+        alert("i="+i);//i=100
+
+        var fromJava="{\"name\":\"coco\",\"pwd\":\"123\"}";//这是Java程序给发过来的JSON格式的字符串
+        //将以上的字符串转换成JSON对象
+        window.eval("var jsonObj="+fromJava);
+        //访问JSON对象属性的两种方式
+        alert(jsonObj.name+","+jsonObj.pwd);
+        alert(jsonObj["name"]+","+jsonObj["pwd"]);
+        
+    </script>
+</body>
+</html>

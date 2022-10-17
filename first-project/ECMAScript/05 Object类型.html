@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function sayHello(username){
+            alert("hello " + username);
+        }
+
+        sayHello("coco");
+        var obj = new sayHello("hugo");//obj是一个引用，保存内存地址指向堆中的对象
+
+        //定义一个学生类
+        function Student(){
+            alert("Student");
+        }
+        var stu = new Student();
+        alert(stu);
+
+        //a b c 是形参 属于局部变量
+        function User(a, b, c){
+            //声明属性 this表示当前对象
+            this.sno = a;
+            this.sname = b;
+            this.sage = c;
+        }
+
+        //创建对象时参数不受限制
+        var user1 = new User(111, "coco", 29);
+        var user2 = new User(222);
+        var user3 = new User("hugo", 56);
+        //访问对象的属性方式1
+        alert(user1.sno);
+        alert(user1.sname);
+        alert(user1.sage);
+        //访问对象的属性方式2
+        alert(user1["sname"]);
+        alert(user1["sage"]);
+
+        //定义类的另一种方式
+        Emp = function(ename, salary){
+            this.ename = ename;
+            this.salary = salary;
+        }
+
+        var emp1 = new Emp("Jack", 8000);
+        alert(emp1.ename + " " + emp1.salary);
+        var emp2 = new Emp("Smith");
+        alert(emp2.salary);
+
+        Product = function(pno, pname, price){
+            this.pno = pno;
+            this.pname = pname;
+            this.price = price;
+
+            this.getPrice = function(){
+                return this.price;
+            }
+        }
+
+        var apple = new Product(111, "Apple", 4.9);
+        var price = apple.getPrice();
+        alert(price);//4.9
+
+        //扩展的函数
+        Product.prototype.getPname = function(){
+            return this.pname;
+        }
+        Product.prototype.getPno = function(){
+            return this.pno;
+        }
+
+        //调用后期扩展的函数
+        var pname = apple.getPname();
+        alert(pname);
+        var pno = apple.getPno();
+        alert(pno);
+
+        //给String扩展一个函数
+        String.prototype.suiyi = function(){
+            alert("this ia function suiyi")
+        }
+
+        "abc".suiyi();
+        
+        String.prototype.sum = function(a, b){
+            alert(a + b) ;
+        }
+
+        "abc".sum("hello", "france");
+
+        function Animal(aname){
+            this.aname = aname;
+        }
+
+        var dog = new Animal("coco");
+        Animal.prototype.getAname = function(){
+            return this.aname;
+        }
+
+
+
+    </script>
+</body>
+</html>

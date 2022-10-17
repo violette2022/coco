@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verification of form</title>
+    <style type="text/css">
+        span {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+    <!--
+        1 用户名不能为空，必须在6-14位之间
+        2 用户名只能有数字和字母组成，不能含有其他符号(正则表达式)
+        3 密码和确认密码一致，邮箱地址合法
+        4 统一失去焦点验证
+        5 错误提示信息统一在span标签中提示，并且要求字体12号，红色
+        6 文本框再次获得焦点后，清空错误提示信息，如果文本框中数据不合法要求清空文本框的value
+        7 最终表单中所有项均合法可提交
+    -->
+    
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function(){
+            //给用户名文本框绑定事件
+            var usernameEle = document.getElementById("username");
+            var usernameErrorSpan = document.getElementById("usernameError");
+            usernameEle.onblur = function(){
+                //step1 get username
+                var username = usernameEle.value;
+                //step52 remove spaces 
+                username = username.trim();
+                //step3 判断是否是空字符串
+                // username === ""
+                if (username.length == 0){
+                    usernameErrorSpan.innerText = "username should not be empty";
+                }else{
+                    if(username.length < 6 || username.length > 14){
+                        usernameErrorSpan.innerText = "username's length should be between 6 and 14";
+                    }else{
+                        //username is legal
+                    //var regExp = /^[A-Za-zO-9]+$/;
+                    var regExp = /^[a-zA-Z0-9]+$/;
+                        var ok = regExp.test(username);
+                        if(!ok){
+                            usernameErrorSpan.innerText = "username should be only letters and digital";
+                        }
+                    }
+                }
+                
+            }
+            usernameEle.onfocus = function(){
+                //清空不合法的用户名
+                if (usernameErrorSpan.innerText != ""){
+                    usernameEle.value = "";
+                }
+                usernameErrorSpan.innerText = ""; 
+            }
+          
+            var emailEle = document.getElementById("email");
+            var emailErrorSpan = document.getElementById("emailError");
+            emailEle.onblur = function(){
+                var emailRex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var email = emailEle.value;
+                var emailOk = emailRex.test(email);
+                if(!emailOk){
+                    emailErrorSpan.innerText = "email is not in correct format";
+                }
+            }
+            emailEle.onfocus = function(){
+                if(emailErrorSpan.innerText != ""){
+                    emailEle.value = "";
+                }
+                emailErrorSpan.innerText = "";
+            }
+          
+
+            var passwordEle = document.getElementById("pwd");
+            var passwordErrorSpan = document.getElementById("pwdError");
+            passwordEle.onblur = function(){
+                var password = passwordEle.value;
+                if(password.length < 4){
+                    passwordErrorSpan.innerText = "password should be at least 4 characters"
+                }
+            }
+            passwordEle.onfocus = function(){
+                if(passwordErrorSpan.innerText != ""){
+                    passwordEle.value = "";
+                }
+                passwordErrorSpan.innerText = "";
+            }
+
+
+            var confirmEle = document.getElementById("confirm");
+            var confirmErrorSpan = document.getElementById("confirmError");
+            confirmEle.onblur = function(){
+                var password = document.getElementById("pwd").value;
+                var confirm = confirmEle.value;
+                if (confirm != password){
+                    confirmErrorSpan.innerText = "password should be identical";
+                }
+            }
+            confirmEle.onfocus = function(){
+                if(confirmErrorSpan.length != 0){
+                    confirmEle.value = "";
+                }
+                confirmErrorSpan.innerText = "";
+            }
+
+            var submitBtnEle = document.getElementById("submitbtn");
+            submitBtnEle.onclick = function(){
+            //触发失去焦点事件，不需要人工操作，使用纯JS代码触发事件
+                usernameEle.focus();
+                usernameEle.blur();
+                emailEle.focus();
+                emailEle.blur();
+                passwordEle.focus();
+                passwordEle.blur();
+                confirmEle.focus();
+                confirmEle.blur();
+            
+                if(usernameErrorSpan.innerText=="" && emailErrorSpan.innerText=="" && passwordErrorSpan.innerText==""){
+                    var userformEle = document.getElementById("userform");
+                    userformEle.submit();
+                }
+
+            }
+        }
+        
+    </script>
+
+    <form id="userform" action="http://localhost8080/jd/save" method="get">
+        Username<input type="text" name="username" id="username"/><span id="usernameError"></span>
+        <br>
+        Email<input type="email" name="email" id="email"/><span id="emailError"></span>
+        <br>
+        Password<input type="password" name="pwd" id="pwd"/><span id="pwdError"></span>
+        <br>
+        ConfirmPassword<input type="password" name="confirm" id="confirm"/><span id="confirmError"></span>
+        <br>
+        <input type="button" value="submit" id="submitbtn"/>
+        <input type="reset" value="reset" id="reset"/>
+    </form>
+    </body>
+</html>

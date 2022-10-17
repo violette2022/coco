@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML & innerTEXT</title>
+    <style type="text/css">
+        #div1{
+            background-color: aquamarine;
+            width: 300px;
+            height: 300px;
+            border: 1px black solid;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                // step1: get the element
+                var div1 = document.getElementById("div1");
+                // step2: set the content using attribute innerHTML
+                //div1.innerHTML = "hello worlid";
+                // the content can be html code
+                //div1.innerHTML = "<font color='red'>Username shoulc not be empty! </font>";
+                div1.innerText = "<font color='red'>Username shoulc not be empty! </font>";
+
+
+                
+            }
+        }
+    </script>
+
+    <input type="button" value="set content in div" id="btn"/>
+    <div id="div1"></div>
+
+</body>
+</html>

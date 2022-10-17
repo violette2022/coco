@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var user={
+            "usercode":110,
+            "username":"coco",
+            "sex":true,
+            "address":{
+                "city":"lyon",
+                "street":"avenue",
+                "zipcode":"69530"
+            },
+            "passion":["smoke","drink","tt"]
+        };
+        //访问人名和居住的城市
+        alert(user.username+";"+user.address.city);
+
+        var jsonData={
+            "total":3,
+            "students":[
+                {"name":"tony","birth":"28-10"},
+                {"name":"hugo","birth":"28-10"},
+                {"name":"amanine","birth":"28-10"},
+            ]
+
+        }
+    </script>
+</body>
+</html>
